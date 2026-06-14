@@ -1,0 +1,170 @@
+{
+  "entities": {
+    "Appointment": {
+      "title": "Aircon Appointment",
+      "description": "Represents a local aircon servicing appointment booked by a Penang resident.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the appointment."
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user who booked the appointment or a consistent guest ID."
+        },
+        "clientName": {
+          "type": "string",
+          "description": "Full name of the client."
+        },
+        "clientPhone": {
+          "type": "string",
+          "description": "Contact number of the client in Malaysia / Penang (e.g., +601x-xxxxxxx)."
+        },
+        "clientEmail": {
+          "type": "string",
+          "description": "Email address of the client."
+        },
+        "clientAddress": {
+          "type": "string",
+          "description": "Full home/office layout address in Penang."
+        },
+        "clientArea": {
+          "type": "string",
+          "enum": [
+            "Georgetown",
+            "Bayan Lepas",
+            "Bayan Baru",
+            "Gelugor",
+            "Air Itam",
+            "Paya Terubong",
+            "Tanjung Bungah",
+            "Tanjung Tokong",
+            "Batu Ferringhi",
+            "Balik Pulau",
+            "Butterworth",
+            "Bukit Mertajam",
+            "Perai",
+            "Seberang Jaya",
+            "Simpang Ampat",
+            "Nibong Tebal",
+            "Kepala Batas"
+          ],
+          "description": "The specific area in Penang (Island or Mainland) where the service takes place."
+        },
+        "serviceType": {
+          "type": "string",
+          "enum": [
+            "normal_cleaning",
+            "chemical_cleaning",
+            "chemical_overhaul",
+            "gas_topup",
+            "water_leakage_repair",
+            "troubleshooting_repair",
+            "installation_relocation"
+          ],
+          "description": "The type of aircon service requested by the user."
+        },
+        "unitsCount": {
+          "type": "number",
+          "description": "The number of aircon units requiring service."
+        },
+        "acType": {
+          "type": "string",
+          "enum": [
+            "wall_mounted",
+            "cassette",
+            "ceiling_exposed",
+            "ducted"
+          ],
+          "description": "The style of the aircon unit."
+        },
+        "acBrand": {
+          "type": "string",
+          "description": "The brand of the air conditioning unit (e.g., Daikin, Panasonic, Mitsubishi, York)."
+        },
+        "acHorsepower": {
+          "type": "string",
+          "enum": [
+            "1.0 HP",
+            "1.5 HP",
+            "2.0 HP",
+            "2.5 HP or above"
+          ],
+          "description": "Aircon cooling power rating."
+        },
+        "serviceDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The requested date for the servicing appointment."
+        },
+        "serviceTimeSlot": {
+          "type": "string",
+          "enum": [
+            "morning",
+            "afternoon",
+            "late_afternoon"
+          ],
+          "description": "Preferred time range slot (Morning 9am-12pm, Afternoon 1pm-4pm, Late Afternoon 4pm-7pm)."
+        },
+        "userNotes": {
+          "type": "string",
+          "description": "Additional requirements or issue notes from the user."
+        },
+        "estimatePrice": {
+          "type": "number",
+          "description": "The calculated cost estimate in RM (Ringgit Malaysia)."
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "confirmed",
+            "assigned",
+            "completed",
+            "cancelled"
+          ],
+          "description": "Current workflow status of the servicing appointment."
+        },
+        "technicianName": {
+          "type": "string",
+          "description": "Name of the assigned local aircon technician, if any."
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the appointment was created."
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Timestamp when the appointment was last modified."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "clientName",
+        "clientPhone",
+        "clientEmail",
+        "clientAddress",
+        "clientArea",
+        "serviceType",
+        "unitsCount",
+        "acType",
+        "serviceDate",
+        "serviceTimeSlot",
+        "estimatePrice",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/appointments/{appointmentId}": {
+      "schema": "Appointment",
+      "description": "Collection of aircon servicing appointment requests in Penang."
+    }
+  }
+}
