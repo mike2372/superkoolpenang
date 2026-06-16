@@ -509,7 +509,7 @@ export default function TechnicianHub({ appointments, onUpdateStatus }: Technici
                           {assigningApptId === appt.id ? (
                             <div className="absolute right-0 bottom-full mb-1 bg-white border border-slate-200 p-2.5 rounded-xl shadow-lg z-20 flex flex-col gap-1.5 min-w-[150px]">
                               <p className="text-[10px] font-bold text-slate-500 uppercase pb-1 border-b border-slate-100 font-sans">Choose Crew:</p>
-                              {["Anwar", "Muthu", "Mike"].map((name) => (
+                              {["Mike", "Amir", "Ami"].map((name) => (
                                 <button
                                   key={name}
                                   onClick={() => handleAssignTechnician(appt.id, name)}

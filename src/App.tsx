@@ -36,9 +36,9 @@ const SEED_APPOINTMENTS: Appointment[] = [
     userNotes: "Bedroom unit cooling slowly, chemical wash requested.",
     estimatePrice: 345,
     status: "completed",
-    technicianName: "Anwar",
+    technicianName: "Amir",
     rating: 5,
-    review: "Exceptional chemical cleaning service of our 2 Daikin units! Very clean workspace left by Anwar and we finally have cold air again in George Town.",
+    review: "Exceptional chemical cleaning service of our 2 Daikin units! Very clean workspace left by Amir and we finally have cold air again in George Town.",
     createdAt: new Date(Date.now() - 72*3600*1000).toISOString(),
     updatedAt: new Date(Date.now() - 48*3600*1000).toISOString(),
   },
@@ -103,7 +103,7 @@ const SEED_APPOINTMENTS: Appointment[] = [
     userNotes: "Routine maintenance done.",
     estimatePrice: 150,
     status: "completed",
-    technicianName: "Anwar",
+    technicianName: "Amir",
     rating: 4,
     review: "Quick and easy canvas chemical wash. Arrived right on schedule, cold breeze restored.",
     createdAt: new Date(Date.now() - 196*24*3600*1000).toISOString(),
@@ -123,7 +123,7 @@ const FAQ_ITEMS = {
     },
     {
       q: "How does the dispatch and online booking process work?",
-      a: "Booking takes less than a minute! Pick your preferred type of service, input unit horsepowers, and share your Penang address. Our matching system instantly pairs you with a local technician (Anwar, Muthu, or Mike) who is closest on duty. You can track status on the real-time client dashboard, and you will see uploaded live 'before' & 'after' photos as soon as the job is complete!"
+      a: "Booking takes less than a minute! Pick your preferred type of service, input unit horsepowers, and share your Penang address. Our matching system instantly pairs you with a local technician (Mike, Amir, or Ami) who is closest on duty. You can track status on the real-time client dashboard, and you will see uploaded live 'before' & 'after' photos as soon as the job is complete!"
     },
     {
       q: "Do I always need a refrigerant gas top-up when getting a servicing?",
@@ -141,7 +141,7 @@ const FAQ_ITEMS = {
     },
     {
       q: "提交订单和在线预订服务的流程是怎样的？",
-      a: "预订非常简单，一分钟内即可搞定！选择服务类型，填写空调匹数并输入您的地址。系统会立即指派最靠近您、目前值班的本地资深技术员（Anwar，Muthu 或 Mike）上门。您还可以通过实时客户看板追踪任务状态，并在清洗完成后查阅上传的现场‘清洗前 vs 清洗后’对比照片！"
+      a: "预订非常简单，一分钟内即可搞定！选择服务类型，填写空调匹数并输入您的地址。系统会立即指派最靠近您、目前值班的本地资深技术员（Mike，Amir 或 Ami）上门。您还可以通过实时客户看板追踪任务状态，并在清洗完成后查阅上传的现场‘清洗前 vs 清洗后’对比照片！"
     },
     {
       q: "每次清洗冷气时我都需要进行额外的氟利昂（雪种）加气吗？",
@@ -721,21 +721,13 @@ export default function App() {
                     : "Understand how standard on-wall canvas bag washing differs from a total dismantle overhaul."}
                 </p>
               </div>
-              <div className="relative overflow-x-auto rounded-xl border border-slate-200 shadow-sm bg-white">
-                <div className="min-w-[768px] md:min-w-full">
-                  <img
-                    src="/image/chemical_service_comparison.jpg"
-                    alt="Aircon Chemical Service Types: A Visual Comparison (Canvas Chemical Service vs Full Chemical Overhaul)"
-                    className="w-full h-auto select-none block"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              </div>
-              <div className="text-center md:hidden mt-2">
-                <p className="text-[11px] text-slate-400 font-sans flex items-center justify-center gap-1">
-                  <span>↔️</span>
-                  {lang === "zh" ? "提示：左右滑动可查看完整清晰对比" : lang === "ms" ? "Tip: Leret ke kiri/kanan untuk perbandingan penuh" : "Tip: Swipe left/right to view full comparison"}
-                </p>
+              <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-white">
+                <img
+                  src="/image/chemical_service_comparison.jpg"
+                  alt="Aircon Chemical Service Types: A Visual Comparison (Canvas Chemical Service vs Full Chemical Overhaul)"
+                  className="w-full h-auto object-cover select-none"
+                  referrerPolicy="no-referrer"
+                />
               </div>
             </div>
 

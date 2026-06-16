@@ -521,7 +521,7 @@ export default function CustomerDashboard({
                     <div className="p-4 bg-indigo-50/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                       <div className="flex items-center gap-3">
                         <div className="w-9 h-9 bg-slate-200 border-2 border-white rounded-full flex items-center justify-center font-bold text-sm text-slate-800 shadow-sm overflow-hidden">
-                          {tech.name === "Anwar" ? "🧔🏾" : tech.name === "Muthu" ? "👨🏽" : "👴🏻"}
+                          {tech.name === "Amir" ? "🧔🏾" : tech.name === "Ami" ? "👨🏽" : "👴🏻"}
                         </div>
                         <div>
                           <div className="text-xs font-bold text-slate-800 flex items-center gap-1">
@@ -1059,7 +1059,7 @@ export default function CustomerDashboard({
                     <ul className="list-disc pl-5 text-[11px] text-slate-700 space-y-1 pt-1">
                       <li><strong>Appliance Profile:</strong> {simulatedEmailAppt.acBrand} {simulatedEmailAppt.acHorsepower} ({simulatedEmailAppt.acType.replace("_", " ")})</li>
                       <li><strong>Serviced Address:</strong> {simulatedEmailAppt.clientAddress}, {simulatedEmailAppt.clientArea}</li>
-                      <li><strong>Completed by Technician:</strong> {simulatedEmailAppt.technicianName || "Anwar"}</li>
+                      <li><strong>Completed by Technician:</strong> {simulatedEmailAppt.technicianName || "Amir"}</li>
                     </ul>
                   </div>
 
