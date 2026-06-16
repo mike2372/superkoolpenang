@@ -1090,7 +1090,7 @@ export default function CustomerDashboard({
 
                   <p className="text-slate-500 text-[11px]">
                     Warmest local Penang regards,<br />
-                    <strong>Uncle Hock & Mike AI</strong><br />
+                    <strong>Mike & AI Crew</strong><br />
                     SuperCool Customer Retention & Support Center
                   </p>
                 </div>

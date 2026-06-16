@@ -130,6 +130,22 @@
           "type": "string",
           "description": "Name of the assigned local aircon technician, if any."
         },
+        "photoBefore": {
+          "type": "string",
+          "description": "Base64 encoded string of user's aircon unit before servicing is performed."
+        },
+        "photoAfter": {
+          "type": "string",
+          "description": "Base64 encoded string of user's aircon unit after servicing is completed."
+        },
+        "rating": {
+          "type": "number",
+          "description": "User feedback rating from 1 to 5 stars."
+        },
+        "review": {
+          "type": "string",
+          "description": "Written review or customer comments left after completion."
+        },
         "createdAt": {
           "type": "string",
           "format": "date-time",

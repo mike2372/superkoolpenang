@@ -109,7 +109,7 @@ export default function UncleHockChat({ onClose, lang = "en" }: UncleHockChatPro
       const errMsg: ChatMessage = {
         id: Math.random().toString(),
         sender: "bot",
-        text: "Wah! Uncle must be in a concrete room servicing condenser, signal lost! Let me try climbing down the ladder-lah. Send me a message again in a short while!",
+        text: "Wah! Mike must be in a concrete room servicing condenser, signal lost! Let me try climbing down the ladder-lah. Send me a message again in a short while!",
         timestamp: new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }),
       };
       setMessages((prev) => [...prev, errMsg]);

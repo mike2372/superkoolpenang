@@ -186,6 +186,19 @@ export default function App() {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [prefillBookingData, setPrefillBookingData] = useState<Partial<Appointment> | null>(null);
   
+  // Dynamic admin login passcodes (changeable from dashboard)
+  const [adminPasscodes, setAdminPasscodes] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      const stored = localStorage.getItem("supercool_admin_passcodes");
+      if (stored) {
+        try {
+          return JSON.parse(stored);
+        } catch (e) {}
+      }
+    }
+    return ["SUPERCOOL-2026", "60175162938", "admin123"];
+  });
+  
   // Real or mock Auth state
   const [currentUser, setCurrentUser] = useState<{ uid: string; email: string; displayName: string } | null>({
     uid: "guest-user-999",
@@ -304,10 +317,10 @@ export default function App() {
       if (currentUser?.uid === "guest-user-999") {
         setCurrentUser({
           uid: "demo-user-123",
-          email: "tan.hock.boon@gmail.com",
-          displayName: "Tan Hock Boon",
+          email: "mshtechnology@gmail.com",
+          displayName: "Mike",
         });
-        triggerToast("Logged in as Tan Hock Boon (Demo Mode)");
+        triggerToast("Logged in as Mike (Demo Mode)");
       } else {
         setCurrentUser({
           uid: "guest-user-999",
@@ -493,19 +506,6 @@ export default function App() {
                 🏠 {t.navHome}
               </button>
               <button
-                onClick={() => { setActiveTab("dashboard"); setIsBookingModalOpen(false); }}
-                className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1 ${
-                  activeTab === "dashboard" ? "bg-blue-50 text-blue-700" : "text-slate-600 hover:text-slate-900"
-                }`}
-              >
-                📅 {t.navMyBookings}
-                {filteredClientAppointments.length > 0 && (
-                  <span className="bg-blue-600 text-white w-4 h-4 rounded-full text-[9px] flex items-center justify-center font-bold">
-                    {filteredClientAppointments.length}
-                  </span>
-                )}
-              </button>
-              <button
                 onClick={() => { setActiveTab("ask_hock"); setIsBookingModalOpen(false); }}
                 className={`px-3 py-1.5 rounded-lg transition-all ${
                   activeTab === "ask_hock" ? "bg-teal-50 text-teal-850" : "text-slate-600 hover:text-slate-900"
@@ -549,18 +549,6 @@ export default function App() {
                   <option value="ms">BM</option>
                 </select>
               </div>
-
-              <div className="text-right hidden sm:block">
-                <span className="text-[10px] font-medium text-slate-400 block font-sans">{t.signedInAs}</span>
-                <span className="text-xs font-bold text-slate-800 font-sans">{currentUser?.displayName}</span>
-              </div>
-              
-              <button
-                onClick={handleAuthLogin}
-                className="bg-slate-100 hover:bg-slate-200 text-slate-800 text-[11px] font-bold px-3 py-2 rounded-xl transition-all border border-slate-150 active:scale-95"
-              >
-                {currentUser?.uid === "guest-user-999" ? `🔓 ${t.signIn}` : `🔄 ${t.switchUser}`}
-              </button>
             </div>
           </div>
         </div>
@@ -585,7 +573,7 @@ export default function App() {
             </p>
 
             {/* Grid of Action Pillars */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 max-w-3xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 max-w-2xl mx-auto">
               
               {/* Pillar 1: Booking Wizard Launcher */}
               <div 
@@ -620,24 +608,6 @@ export default function App() {
                 </div>
                 <div className="text-xs font-bold pt-1.5 flex items-center gap-1 text-teal-600">
                   {t.askMikeBtn} <ChevronRight size={13} />
-                </div>
-              </div>
-
-              {/* Pillar 3: View Appointments dashboard */}
-              <div 
-                onClick={() => setActiveTab("dashboard")}
-                className="bg-white hover:bg-slate-50 text-slate-800 rounded-2xl p-5 border border-slate-200 text-left space-y-3 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:-translate-y-1"
-                id="tracker-launcher"
-              >
-                <div className="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm">
-                  📋
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm tracking-tight text-slate-800">{t.myBookingPillarTitle}</h4>
-                  <p className="text-[11px] text-slate-500 font-sans mt-0.5 leading-relaxed">{t.myBookingPillarDesc}</p>
-                </div>
-                <div className="text-xs font-bold pt-1.5 flex items-center gap-1 text-indigo-600">
-                  {t.myBookingPillarBtn} <ChevronRight size={13} />
                 </div>
               </div>
 
@@ -937,21 +907,6 @@ export default function App() {
           </div>
         )}
 
-        {/* TAB 2: CURRENT GUEST/CLIENT APPOINTMENTS LISTING */}
-        {activeTab === "dashboard" && (
-          <CustomerDashboard
-            appointments={filteredClientAppointments}
-            onCancelAppointment={handleCancelAppointment}
-            onAddAppointmentClick={() => setIsBookingModalOpen(true)}
-            onUpdateAppointment={handleUpdateAppointment}
-            lang={lang}
-            onRebookOverdue={(appt) => {
-              setPrefillBookingData(appt);
-              setIsBookingModalOpen(true);
-            }}
-          />
-        )}
-
         {/* TAB 3: ADMIN DISPATCH CONTROLLER PANEL */}
         {activeTab === "technician" && (
           isStaffAuthorized ? (
@@ -979,6 +934,68 @@ export default function App() {
                 >
                   🔒 Lock & Log Out Console
                 </button>
+              </div>
+
+              {/* CHANGE PASSWORD / PASSCODE CONTROL PANEL */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm space-y-4 font-sans text-left">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-xl">⚙️</span>
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm text-slate-800 uppercase tracking-tight">Admin Security Settings</h4>
+                      <p className="text-[10px] text-slate-500 font-sans">Modify administrative passcodes to change login passwords dynamically.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="border-t border-slate-100 pt-3 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Password status / List */}
+                  <div className="space-y-1.5 font-sans">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Current Authorized Passcodes:</span>
+                    <div className="flex flex-wrap gap-1.5">
+                      {adminPasscodes.map((code, index) => (
+                        <span key={index} className="bg-slate-100 border border-slate-200 text-slate-700 text-[10px] px-2.5 py-1 rounded-lg font-mono font-bold">
+                          {code}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Edit/Change password form */}
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      const form = e.target as HTMLFormElement;
+                      const newPass = (form.elements.namedItem("new_passcode") as HTMLInputElement).value.trim();
+                      if (!newPass) return;
+                      
+                      const updated = [newPass, ...adminPasscodes.filter(c => c !== newPass)];
+                      setAdminPasscodes(updated);
+                      localStorage.setItem("supercool_admin_passcodes", JSON.stringify(updated));
+                      form.reset();
+                      triggerToast("🎉 Admin Login Passcode updated successfully!");
+                    }}
+                    className="flex flex-col sm:flex-row gap-2 items-end"
+                  >
+                    <div className="flex-1 space-y-1 w-full text-left">
+                      <label htmlFor="new_passcode" className="block text-[10px] font-bold text-slate-400 uppercase tracking-wider">Change / Add Login Passcode</label>
+                      <input
+                        id="new_passcode"
+                        name="new_passcode"
+                        type="text"
+                        required
+                        placeholder="Enter new admin passcode"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:ring-1 focus:ring-indigo-505 font-bold"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs px-4 py-2 rounded-xl h-9 whitespace-nowrap active:scale-95 transition-all text-center cursor-pointer"
+                    >
+                      Update Passcode
+                    </button>
+                  </form>
+                </div>
               </div>
 
               <TechnicianHub
@@ -1026,14 +1043,14 @@ export default function App() {
                   e.preventDefault();
                   const form = e.target as HTMLFormElement;
                   const passcode = (form.elements.namedItem("passcode") as HTMLInputElement).value;
-                  if (passcode === "SUPERCOOL-2026" || passcode === "60175162938" || passcode === "admin123") {
+                  if (adminPasscodes.includes(passcode)) {
                     setIsStaffAuthorized(true);
                     if (typeof window !== "undefined") {
                       window.sessionStorage.setItem("is_supercool_admin", "true");
                     }
                     triggerToast("🎉 Security Passcode matches! Welcome SuperCool Admin.");
                   } else {
-                    alert("Ayo-lah! Incorrect staff passcode. See hint or use correct auth credentials.");
+                    alert("Ayo-lah! Incorrect staff passcode. Please try again or use correct auth credentials.");
                   }
                 }}
                 className="space-y-4"
@@ -1049,9 +1066,6 @@ export default function App() {
                     placeholder="••••••••••••"
                     className="w-full bg-slate-50 hover:bg-white border border-slate-200 rounded-xl p-3 text-xs tracking-widest text-center focus:ring-1 focus:ring-indigo-505 focus:border-indigo-505 font-bold"
                   />
-                  <p className="text-[10px] text-stone-400 font-sans mt-0.5 leading-relaxed italic">
-                    💡 <strong>Simulated credentials hint:</strong> Use <code>SUPERCOOL-2026</code> or <code>60175162938</code> to easily review bypass features.
-                  </p>
                 </div>
 
                 <div className="flex gap-2">
@@ -1074,7 +1088,7 @@ export default function App() {
           )
         )}
 
-        {/* TAB 4: UNCLE HOCK DIAGNOSIS INTUITIVE ASSISTANT CHATBOX */}
+        {/* TAB 4: MIKE AI DIAGNOSIS INTUITIVE ASSISTANT CHATBOX */}
         {activeTab === "ask_hock" && (
           <div className="max-w-2xl mx-auto h-[600px] flex flex-col">
             <UncleHockChat lang={lang} />
@@ -1121,21 +1135,6 @@ export default function App() {
           >
             <span>🏠</span>
             <span>Home</span>
-          </button>
-          
-          <button
-            onClick={() => setActiveTab("dashboard")}
-            className={`flex flex-col items-center gap-1 text-[10px] font-sans font-medium relative ${
-              activeTab === "dashboard" ? "text-blue-600" : "text-slate-500"
-            }`}
-          >
-            {filteredClientAppointments.length > 0 && (
-              <span className="absolute top-0 right-1 bg-blue-600 text-white text-[8px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">
-                {filteredClientAppointments.length}
-              </span>
-            )}
-            <span>📅</span>
-            <span>My Bookings</span>
           </button>
 
           <button
