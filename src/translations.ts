@@ -318,7 +318,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
 
     heroPillarTag: "槟城当地真正信赖的多品牌空调清洗与维修服务（自1996年起）",
     heroHeading: "彻底解决空调漏水与不冷问题。",
-    heroHeadingAccent: "槟城山!",
+    heroHeadingAccent: "槟城升旗山!",
     heroSubheading: "绝无隐藏收费陷阱。快速派遣至槟岛（乔治市，葛尼，峇六拜）和威省（北海，大山脚，北赖）。专业船篷级化学清洗仅从 RM 80 起！",
     directBookTitle: "直接在线预订",
     directBookDesc: "可在2分钟内直接为您和 Mike, Amir 或 Ami 团队安排上门服务时间。",
