@@ -723,7 +723,7 @@ export default function App() {
               </div>
               <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-white">
                 <img
-                  src="/image/chemical_service_comparison.jpg"
+                  src="/image/chemical_service_comparison.png"
                   alt="Aircon Chemical Service Types: A Visual Comparison (Canvas Chemical Service vs Full Chemical Overhaul)"
                   className="w-full h-auto object-cover select-none"
                   referrerPolicy="no-referrer"
