@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { 
   Wrench, MessageSquare, ShieldAlert, CheckCircle, Clock, 
-  HelpCircle, UserCheck, Star, Sparkles, Building, ChevronRight, BarChart,
+  HelpCircle, UserCheck, Sparkles, Building, ChevronRight, BarChart,
   ArrowLeft
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -731,89 +731,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Testimonials or local touches */}
-            <div className="space-y-6 max-w-4xl mx-auto mt-10" id="testimonials-public-section">
-              <div className="text-center space-y-1">
-                <h3 className="text-base font-extrabold text-slate-900 tracking-tight uppercase">
-                  {lang === "zh" ? "⭐ 槟城真实客户对 SuperCool 的好评反馈" : lang === "ms" ? "⭐ Ulasan Sebenar Pelanggan SuperCool" : "⭐ Real SuperCool Client Reviews in Penang"}
-                </h3>
-                <p className="text-xs text-slate-500 font-sans">
-                  {lang === "zh" ? "来自乔治市、北海、软件园及全槟各住宅区的业主实时分享。" : lang === "ms" ? "Dikongsi oleh pemilik rumah di George Town, Butterworth, Bayan Lepas & Seberang Perai." : "Shared by real homeowners across George Town, Butterworth, and Seberang Perai."}
-                </p>
-              </div>
 
-              {/* Dynamic review cards list */}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-left">
-                {/* Legacy/Default Testimonial (Always displayed as high-credibility local reference) */}
-                <div className="bg-white/85 p-5 border border-slate-150 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all gap-4">
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center">
-                      <div className="flex gap-0.5 text-yellow-400">
-                        {[1, 2, 3, 4, 5].map((s) => (
-                          <Star key={s} size={12} className="fill-current" />
-                        ))}
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-mono">Verified Local Business</span>
-                    </div>
-                    <p className="text-xs text-slate-700 italic font-sans leading-relaxed">
-                      "Mike serviced our coffee shop aircon in Raja Uda Butterworth, very polite crew and cold wind blew on-the-spot! Prices match quoted bill of RM 300-lah."
-                    </p>
-                  </div>
-                  <div className="flex justify-between items-center border-t border-slate-100 pt-3">
-                    <span className="text-[11px] font-bold text-slate-800">- Koay Coffee Shop</span>
-                    <span className="text-[10px] text-slate-400 bg-slate-50 px-2 py-0.5 rounded font-medium">Butterworth</span>
-                  </div>
-                </div>
-
-                {/* Dynamically submitted reviews */}
-                {appointments
-                  .filter((appt) => appt.status === "completed" && appt.rating !== undefined)
-                  .map((appt) => {
-                    const stars = appt.rating || 5;
-                    const cleanName = appt.clientName.length > 20 ? `${appt.clientName.slice(0, 17)}...` : appt.clientName;
-                    
-                    return (
-                      <div 
-                        key={appt.id} 
-                        className="bg-white p-5 border border-slate-150 rounded-2xl shadow-sm flex flex-col justify-between hover:shadow-md transition-all gap-4"
-                        id={`landing-review-${appt.id}`}
-                      >
-                        <div className="space-y-2">
-                          <div className="flex justify-between items-center">
-                            <div className="flex gap-0.5 text-yellow-400">
-                              {[1, 2, 3, 4, 5].map((s) => (
-                                <Star 
-                                  key={s} 
-                                  size={12} 
-                                  className={`${s <= stars ? "fill-yellow-400 text-yellow-400" : "text-slate-200"}`} 
-                                />
-                              ))}
-                            </div>
-                            <span className="text-[9px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded font-bold font-sans uppercase tracking-wider scale-95 origin-right">
-                              {appt.serviceType === "normal_cleaning" 
-                                ? (lang === "zh" ? "船篷化学清洗" : lang === "ms" ? "Kimia Kanvas" : "Canvas Chemical") 
-                                : appt.serviceType === "chemical_overhaul"
-                                ? (lang === "zh" ? "深度大修" : lang === "ms" ? "Overhal Kimia" : "Chemical Overhaul")
-                                : (lang === "zh" ? "专项服务" : lang === "ms" ? "Servis Khas" : "Repair Slot")}
-                            </span>
-                          </div>
-                          <p className="text-xs text-slate-700 italic font-sans leading-relaxed">
-                            "{appt.review || (lang === "zh" ? "服务做得非常棒，十分推荐！" : lang === "ms" ? "Servis terbaik, sangat disyorkan!" : "Excellent service, highly recommended!")}"
-                          </p>
-                        </div>
-                        <div className="flex justify-between items-center border-t border-slate-100 pt-3 text-[11px]">
-                          <span className="font-bold text-slate-800">
-                            - {cleanName}
-                          </span>
-                          <span className="text-[10px] text-slate-500 bg-slate-50 px-2 py-0.5 rounded font-semibold font-sans">
-                            {appt.clientArea}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
-              </div>
-            </div>
 
             {/* FAQ Accordion Section */}
             <div className="max-w-4xl mx-auto mt-12 bg-white/70 rounded-3xl border border-slate-200 p-6 sm:p-8 space-y-6 shadow-sm" id="supercool-landing-faqs">
