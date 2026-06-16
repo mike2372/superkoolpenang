@@ -42,8 +42,6 @@ export interface TranslationDict {
   // Service Terms & Names
   normal_cleaning_title: string;
   normal_cleaning_desc: string;
-  chemical_cleaning_title: string;
-  chemical_cleaning_desc: string;
   chemical_overhaul_title: string;
   chemical_overhaul_desc: string;
   gas_topup_title: string;
@@ -176,7 +174,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     heroPillarTag: "Penang's True Local Multi-Brand Aircon Services (Since 1996)",
     heroHeading: "Settle Your Aircon Hotness.",
     heroHeadingAccent: "Penang Hill!",
-    heroSubheading: "No sneaky pricing traps. Fast dispatch to both Penang Island (Georgetown, Gurney, Bayan Lepas) and Mainland (Butterworth, BM, Perai). Complete bi-annual normal chemical washes from just RM 80!",
+    heroSubheading: "No sneaky pricing traps. Fast dispatch to both Penang Island (Georgetown, Gurney, Bayan Lepas) and Mainland (Butterworth, BM, Perai). Canvas chemical washes from just RM 80!",
     directBookTitle: "Direct Book Slots",
     directBookDesc: "Instantly schedule an appointment with Anwar or Muthu in 2 minutes.",
     directBookBtn: "Book Servicing",
@@ -187,7 +185,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     myBookingPillarDesc: "Check existing repair sheets, view dynamic pricing breakdowns, or print invoice PDFs.",
     myBookingPillarBtn: "Manage Bookings",
 
-    testimonialQuote: "\"Mike serviced our coffee shop aircon in Raja Uda Butterworth, very polite crew and cold wind blew on-the-spot! Prices match quoted bill of RM 160-lah.\"",
+    testimonialQuote: "\"Mike serviced our coffee shop aircon in Raja Uda Butterworth, very polite crew and cold wind blew on-the-spot! Prices match quoted bill of RM 300-lah.\"",
     testimonialAuthor: "- Koay Coffee Shop, Butterworth",
 
     servicesHeading: "No-Gimmick Penang Service Menu",
@@ -196,10 +194,8 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     bookServiceBtn: "Book This Service",
     perUnit: "per unit",
 
-    normal_cleaning_title: "Normal Servicing",
-    normal_cleaning_desc: "Standard filter vacuum, fan blower wash, drain pan flush, and 10-point check. Best for bi-annual maintenance.",
-    chemical_cleaning_title: "Chemical Servicing",
-    chemical_cleaning_desc: "Coil deep-clean with specialized chemical wash, prevents mold growth and unblocks stubborn dust buildup.",
+    normal_cleaning_title: "Canvas Chemical Service",
+    normal_cleaning_desc: "Inject professional chemical washes into heat exchanger metal coils to remove stubborn clogs, slime, and mold spores.",
     chemical_overhaul_title: "Chemical Overhaul",
     chemical_overhaul_desc: "Full dismantle of indoor unit, thorough coil chemical bath, check fan bearings, recommended for highly choked aircons.",
     gas_topup_title: "R32 / r410a Refrigerant Gas Top-up",
@@ -323,7 +319,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     heroPillarTag: "槟城当地真正信赖的多品牌空调清洗与维修服务（自1996年起）",
     heroHeading: "彻底解决空调漏水与不冷问题。",
     heroHeadingAccent: "槟城山!",
-    heroSubheading: "绝无隐藏收费陷阱。快速派遣至槟岛（乔治市，葛尼，峇六拜）和威省（北海，大山脚，北赖）。双年度常规化学清洗仅从 RM 80 起！",
+    heroSubheading: "绝无隐藏收费陷阱。快速派遣至槟岛（乔治市，葛尼，峇六拜）和威省（北海，大山脚，北赖）。专业船篷级化学清洗仅从 RM 80 起！",
     directBookTitle: "直接在线预订",
     directBookDesc: "可在2分钟内直接为您和 Anwar 或 Muthu 团队安排上门服务时间。",
     directBookBtn: "预订空调服务",
@@ -334,7 +330,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     myBookingPillarDesc: "查看现有维修工单，获取透明的报价明细或打印格式化 PDF 销售单。",
     myBookingPillarBtn: "管理我的预订",
 
-    testimonialQuote: "“Mike在北海拉惹乌达帮我们的咖啡店洗了冷气。他的团队非常有礼，洗完立刻吹出冷风！价格非常透明，和预先算好的一样 RM 160。”",
+    testimonialQuote: "“Mike在北海拉惹乌达帮我们的咖啡店洗了冷气。他的团队非常有礼，洗完立刻吹出冷风！价格非常透明，和预先算好的一样 RM 300。”",
     testimonialAuthor: "- 槟城北海 郭氏咖啡店",
 
     servicesHeading: "透明且绝无套路的槟城服务菜单",
@@ -343,10 +339,8 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     bookServiceBtn: "预订此服务",
     perUnit: "每台空调",
 
-    normal_cleaning_title: "常规清洗与保养",
-    normal_cleaning_desc: "过滤器吸尘，风轮清洗，排水槽冲洗，以及10项核心系统安全检测。最适合每半年进行一次的保养。",
-    chemical_cleaning_title: "化学清洗",
-    chemical_cleaning_desc: "使用专用药水对热交换器进行深度化学除灰，防止细菌和霉菌滋生并清除顽固的灰尘堆积。",
+    normal_cleaning_title: "船篷级化学清洗 (Canvas)",
+    normal_cleaning_desc: "使用专用化学药水深入热交换器金属盘管进行高压清洗，彻底清除顽固积垢、霉菌孢子与粘液堵塞。",
     chemical_overhaul_title: "全面化学大修 (Overhaul)",
     chemical_overhaul_desc: "将挂机室内机完整拆卸至零件状态并泡化学浴，检查风轮轴承，最推荐因积尘过度导致出风量极小的空调。",
     gas_topup_title: "R32 / r410a 制冷剂氟利昂加气",
@@ -470,7 +464,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     heroPillarTag: "Servis Aircond Tempatan Tulang Belakang Penang (Sejak 1996)",
     heroHeading: "Selesaikan Masalah Panas Aircond.",
     heroHeadingAccent: "Bukit Bendera!",
-    heroSubheading: "Tiada perangkap harga tersembunyi. Penghantaran cepat ke seluruh Pulau Pinang (Georgetown, Gurney, Bayan Lepas) dan Seberang Perai (Butterworth, BM, Perai). Servis chemical normal dwi-tahunan dari RM 80 sahaja!",
+    heroSubheading: "Tiada perangkap harga tersembunyi. Penghantaran cepat ke seluruh Pulau Pinang (Georgetown, Gurney, Bayan Lepas) dan Seberang Perai (Butterworth, BM, Perai). Servis kimia kanvas dari RM 80 sahaja!",
     directBookTitle: "Tempah Slot Terus",
     directBookDesc: "Jadualkan temujanji terus bersama team Anwar atau Muthu dalam masa 2 minit sahaja.",
     directBookBtn: "Tempah Sekarang",
@@ -481,7 +475,7 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     myBookingPillarDesc: "Semak helaian kerja sedia ada, perhatikan butiran harga dinamik, atau cetak fail PDF invois.",
     myBookingPillarBtn: "Urus Tempahan",
 
-    testimonialQuote: "\"Mike telah servis aircond kedai kopi kami di Raja Uda Butterworth, krew sangat sopan dan angin sejuk keluar serta-merta! Harga bertepatan dengan sebut harga RM 160-lah.\"",
+    testimonialQuote: "\"Mike telah servis aircond kedai kopi kami di Raja Uda Butterworth, krew sangat sopan dan angin sejuk keluar serta-merta! Harga bertepatan dengan sebut harga RM 300-lah.\"",
     testimonialAuthor: "- Kedai Kopi Koay, Butterworth",
 
     servicesHeading: "Menu Servis Penang Tanpa Gimmick",
@@ -490,10 +484,8 @@ export const TRANSLATIONS: Record<Language, TranslationDict> = {
     bookServiceBtn: "Tempah Servis Ini",
     perUnit: "per unit",
 
-    normal_cleaning_title: "Servis Biasa (Normal)",
-    normal_cleaning_desc: "Vakum penapis standard, basuh kipas blower, cuci takungan air pancit, dan pemeriksaan keselamatan 10-mata. Sesuai untuk penyelenggaraan dwi-tahunan.",
-    chemical_cleaning_title: "Servis Kimia (Chemical)",
-    chemical_cleaning_desc: "Pembersihan mendalam coil penyejuk dengan cecair kimia khas, mencegah kulat dan membuka sekatan habuk tebal.",
+    normal_cleaning_title: "Servis Kimia Kanvas (Canvas)",
+    normal_cleaning_desc: "Semburan bahan kimia profesional ke dalam gelung logam penukar haba untuk menghilangkan kotoran degil, lendir, dan spora kulat.",
     chemical_overhaul_title: "Overhaul Kimia Penuh",
     chemical_overhaul_desc: "Buka komponen unit dalaman sepenuhnya, mandian kimia tangki coil, semak bearing kipas, sangat disyorkan untuk aircond yang tersumbat teruk.",
     gas_topup_title: "Isi Semula Gas R32 / R410a",

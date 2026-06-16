@@ -20,7 +20,6 @@ export type PenangArea =
 
 export type ServiceType =
   | "normal_cleaning"
-  | "chemical_cleaning"
   | "chemical_overhaul"
   | "gas_topup"
   | "water_leakage_repair"

@@ -251,7 +251,7 @@ export default function CustomerDashboard({
                         const text = `*SUPERCOOL PENANG - 6-MONTH AIRCON RE-SERVICING REMINDER* ❄️\n\n` +
                           `Dear ${appt.clientName},\n` +
                           `It has been exactly *${days} days* ago since your last aircon cleaning on *${appt.serviceDate}* for your *${appt.acBrand}* unit at ${appt.clientArea}.\n\n` +
-                          `To maintain cold breeze under Penang's humid breeze, would you like us to schedule a recurring maintenance of normal-wash from only RM 80-lah?\n` +
+                          `To maintain cold breeze under Penang's humid breeze, would you like us to schedule a recurring maintenance of canvas chemical wash from only RM 80-lah?\n` +
                           `Please let us know your preferred slot! Thank you!`;
                         window.open(`https://wa.me/60175162938?text=${encodeURIComponent(text)}`, "_blank");
                       }}

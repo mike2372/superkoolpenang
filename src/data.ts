@@ -25,18 +25,13 @@ export const PENANG_AREAS: { value: PenangArea; label: string; zone: "Island" | 
 
 export const SERVICE_TYPES: Record<ServiceType, ServicePriceDef> = {
   normal_cleaning: {
-    title: "Normal Servicing",
+    title: "Canvas Chemical Service",
     basePrice: 80,
-    description: "Standard filter vacuum, fan blower wash, drain pan flush, and 10-point check. Best for bi-annual maintenance.",
-  },
-  chemical_cleaning: {
-    title: "Chemical Servicing",
-    basePrice: 150,
-    description: "Coil deep-clean with specialized chemical wash, prevents mold growth and unblocks stubborn dust buildup.",
+    description: "Inject professional chemical washes into heat exchanger metal coils to remove stubborn clogs, slime, and mold spores.",
   },
   chemical_overhaul: {
     title: "Chemical Overhaul",
-    basePrice: 250,
+    basePrice: 150,
     description: "Full dismantle of indoor unit, thorough coil chemical bath, check fan bearings, recommended for highly choked aircons.",
   },
   gas_topup: {

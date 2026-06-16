@@ -21,12 +21,12 @@ const SEED_APPOINTMENTS: Appointment[] = [
   {
     id: "sc-appt-1092",
     userId: "demo-user-123",
-    clientName: "Lim Guan Eng",
+    clientName: "Mr Lim (Chemical Wash)",
     clientPhone: "+6012-4882190",
-    clientEmail: "guaneng@penang.gov.my",
+    clientEmail: "mrlim@gmail.com",
     clientAddress: "No. 8, Jalan Burma, George Town",
     clientArea: "Georgetown",
-    serviceType: "chemical_cleaning",
+    serviceType: "normal_cleaning",
     unitsCount: 2,
     acType: "wall_mounted",
     acBrand: "Daikin",
@@ -101,11 +101,11 @@ const SEED_APPOINTMENTS: Appointment[] = [
     serviceDate: new Date(Date.now() - 195*24*3600*1000).toISOString().split("T")[0],
     serviceTimeSlot: "afternoon",
     userNotes: "Routine maintenance done.",
-    estimatePrice: 80,
+    estimatePrice: 150,
     status: "completed",
     technicianName: "Anwar",
     rating: 4,
-    review: "Quick and easy normal cleaning. Arrived right on schedule.",
+    review: "Quick and easy canvas chemical wash. Arrived right on schedule, cold breeze restored.",
     createdAt: new Date(Date.now() - 196*24*3600*1000).toISOString(),
     updatedAt: new Date(Date.now() - 195*24*3600*1000).toISOString(),
   }
@@ -115,7 +115,7 @@ const FAQ_ITEMS = {
   en: [
     {
       q: "How much is the aircon service in Penang? Are there hidden fees?",
-      a: "Our rates are fully transparent and flat-rate per unit! We charge RM 80/unit for standard Normal Servicing (filters/pressure clean), RM 150/unit for Chemical Cleaning (chemical coil spray), and RM 250/unit for a full Chemical Overhaul (deep components extraction). There are zero hidden costs, transport surcharges, or holiday markups anywhere in Penang!"
+      a: "Our rates are fully transparent and flat-rate per unit! We charge RM 80/unit for our specialized Canvas Chemical Service (injecting professional chemical washes into heat exchanger metal coils to remove stubborn clogs, slime, and mold spores), and RM 150/unit for a full Chemical Overhaul (deep components extraction). There are zero hidden costs, transport surcharges, or holiday markups anywhere in Penang!"
     },
     {
       q: "What warranty coverage do you provide on servicing and repairs?",
@@ -133,25 +133,25 @@ const FAQ_ITEMS = {
   zh: [
     {
       q: "在槟城冷气服务的具体收费是多少？有隐形车马费或额外消费吗？",
-      a: "我们的服务在全槟实行完全透明、平价的按台定价标准！标准深度清洗 (Normal Servicing) 每台 RM 80，系统化学清洗 (Chemical Cleaning) 每台 RM 150，深度彻底大修拆洗 (Chemical Overhaul) 每台 RM 250。全槟所有主要地区绝不收取隐形差旅费、车马费或假期额外服务服务费，保障您的预算。"
+      a: "我们的服务在全槟实行完全透明、平价的按台定价标准！我们提供每台 RM 80 的专业船篷级化学清洗 (Canvas Chemical Service) 以及每台 RM 150 的深度彻底大修拆洗 (Chemical Overhaul)。全槟所有主要地区绝不收取隐形差旅费、车马费或假期额外服务服务费，保障您的预算。"
     },
     {
       q: "在 SuperCool 进行清洗或故障维修后有提供品质保修期吗？",
-      a: "有的！SuperCool 提供业界出众的 30天施工品质保证 (30-Day Workmanship Warranty)。在完成冷气保养或维修后的 30 天内，若出现冷热故障、排水管漏水等非人为问题，我们承诺安排技术专班免人工费再次上门勘察并彻底修复，为您免除后顾之忧。"
+      a: "有的！SuperCool 提供业界出众的 30天施工品质保证 (30-Day Workmanship Warranty)。在完成冷气保养或维修后的 30 天内，若出现冷热故障、排水管漏水等非人为问题，我们承诺安排技术人员免费返回您的地址重检维护。"
     },
     {
-      q: "整个在线预约和技师上门调度的流程是怎样的？",
-      a: "预约过程极其简单，耗时不到 60 秒！您在线选择需要的服务类型、申报数量及马力大小，填写槟城地址和期待的上门档期后，系统会即刻为您匹配最就近的在岗资深技术主管。您可以在客户端查阅预约状态，并在完工后查看技师在现场拍摄上传的前后照片验证！"
+      q: "提交订单和在线预订服务的流程是怎样的？",
+      a: "预订非常简单，一分钟内即可搞定！选择服务类型，填写空调匹数并输入您的地址。系统会立即指派最靠近您、目前值班的本地资深技术员（Anwar，Muthu 或 Mike）上门。您还可以通过实时客户看板追踪任务状态，并在清洗完成后查阅上传的现场‘清洗前 vs 清洗后’对比照片！"
     },
     {
-      q: "每次清洗冷气时，是否必须自费加冷媒雪种 (Gas Top-up)？",
-      a: "完全不需要！现代冷气是处于全密封循环状态的，除非铜管接口或接头发生损坏或慢漏。我们坚决抵制‘到场强制推销加气’的潜规则。技师现场会使用专业数显压力表为您测验，由于实际数据低于厂商额定压力时，才会在征得您同意后补充冷媒，确保您少走弯路！"
+      q: "每次清洗冷气时我都需要进行额外的氟利昂（雪种）加气吗？",
+      a: "完全不需要！空调系统属于物理密封循环，只有在管道或连接处发生物理性冷媒泄漏时，氟利昂才会减少。我们绝不强制推销‘充气套餐’。技术人员会使用高精度数显压力表为您测量实际气压，只有确实偏低才会建议充气。我们坚持诚信沟通！"
     }
   ],
   ms: [
     {
       q: "Berapakah kadar caj servis aircond di Pulau Pinang? Adakah sebarang caj tersembunyi?",
-      a: "Harga kami adalah telus sepenuhnya bagi setiap unit! Kami menetapkan Servis Biasa (Normal Servicing) RM 80/unit, Servis Basuh Kimia (Chemical Cleaning) RM 150/unit, dan Overhal Kimia (Chemical Overhaul) RM 250/unit. Tiada sebarang kos tersembunyi, caj pengangkutan tergempar, atau caj tambahan daerah di Pulau Pinang!"
+      a: "Harga kami adalah telus sepenuhnya bagi setiap unit! Kami menetapkan Servis Kimia Kanvas (Canvas Chemical Service) RM 80/unit, dan Overhal Kimia (Chemical Overhaul) RM 150/unit. Tiada sebarang kos tersembunyi, caj pengangkutan tergempar, atau caj tambahan daerah di Pulau Pinang!"
     },
     {
       q: "Apakah perlindungan waranti yang SuperCool tawarkan untuk servis aircond?",
@@ -666,41 +666,24 @@ export default function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
               
-              <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-bold text-blue-600 tracking-wider font-sans bg-blue-50 px-2.5 py-1 rounded-full uppercase">Bi-Annual Maintain</span>
-                    <span className="text-xs text-slate-400">90% of bookings</span>
-                  </div>
-                  <div>
-                    <h4 className="text-base font-bold text-slate-850">Normal Servicing</h4>
-                    <p className="text-xs text-slate-500 mt-1 font-sans">Full pressure vacuum blow-cleaning, filter sanitization, electrical wire checking, and testing.</p>
-                  </div>
-                </div>
-                <div className="border-t border-slate-100 pt-4 mt-5 flex justify-between items-center">
-                  <span className="text-sm font-black text-slate-900">RM 80<span className="text-xs font-normal text-slate-500"> / unit</span></span>
-                  <button onClick={() => setIsBookingModalOpen(true)} className="text-[11px] font-bold text-blue-600 hover:underline">Select & Book →</button>
-                </div>
-              </div>
-
               <div className="bg-white p-6 rounded-2xl border-2 border-blue-600 shadow-sm relative flex flex-col justify-between">
                 <div className="absolute top-0 right-5 -translate-y-1/2 bg-blue-600 text-white text-[9px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest font-sans">
                   Highly Popular
                 </div>
                 <div className="space-y-4">
                   <div className="flex justify-between items-start">
-                    <span className="text-[10px] font-bold text-teal-600 tracking-wider font-sans bg-teal-50 px-2.5 py-1 rounded-full uppercase">Deep Odor mold Clean</span>
-                    <span className="text-xs text-slate-400">Recommended yearly</span>
+                    <span className="text-[10px] font-bold text-teal-600 tracking-wider font-sans bg-teal-50 px-2.5 py-1 rounded-full uppercase">Professional Deep Clean</span>
+                    <span className="text-xs text-slate-400">95% of bookings</span>
                   </div>
                   <div>
-                    <h4 className="text-base font-bold text-slate-850">Chemical Cleaning</h4>
+                    <h4 className="text-base font-bold text-slate-850">Canvas Chemical Service</h4>
                     <p className="text-xs text-slate-500 mt-1 font-sans">Inject professional chemical washes into heat exchanger metal coils to remove stubborn clogs, slime, and mold spores.</p>
                   </div>
                 </div>
                 <div className="border-t border-slate-100 pt-4 mt-5 flex justify-between items-center">
-                  <span className="text-sm font-black text-slate-900">RM 150<span className="text-xs font-normal text-slate-500"> / unit</span></span>
+                  <span className="text-sm font-black text-slate-900">RM 80<span className="text-xs font-normal text-slate-500"> / unit</span></span>
                   <button onClick={() => setIsBookingModalOpen(true)} className="text-[11px] font-bold text-blue-600 hover:underline">Select & Book →</button>
                 </div>
               </div>
@@ -717,11 +700,35 @@ export default function App() {
                   </div>
                 </div>
                 <div className="border-t border-slate-100 pt-4 mt-5 flex justify-between items-center">
-                  <span className="text-sm font-black text-slate-900">RM 250<span className="text-xs font-normal text-slate-500"> / unit</span></span>
+                  <span className="text-sm font-black text-slate-900">RM 150<span className="text-xs font-normal text-slate-500"> / unit</span></span>
                   <button onClick={() => setIsBookingModalOpen(true)} className="text-[11px] font-bold text-blue-600 hover:underline">Select & Book →</button>
                 </div>
               </div>
 
+            </div>
+
+            {/* Visual comparison of Canvas vs Overhaul */}
+            <div className="bg-slate-50 border border-slate-200 p-6 rounded-2xl max-w-4xl mx-auto space-y-4">
+              <div className="text-center space-y-1">
+                <h4 className="text-sm font-extrabold text-slate-850 uppercase tracking-wider font-sans">
+                  {lang === "zh" ? "📸 专业清洗方式对比：船篷级化学清洗 vs 全拆卸深度大修" : lang === "ms" ? "📸 Perbandingan Visual: Servis Kimia Kanvas vs Overhal Penuh" : "📸 Visual Comparison: Canvas Chemical Service vs. Full Chemical Overhaul"}
+                </h4>
+                <p className="text-[11px] text-slate-500 font-sans">
+                  {lang === "zh"
+                    ? "直观查看日常洗护中，如何根据现场结垢严重程度选择正确的清洁方案。"
+                    : lang === "ms"
+                    ? "Fahami perbezaan antara semburan kanvas di dinding berbanding buka unit penuh untuk penyelenggaraan optimum."
+                    : "Understand how standard on-wall canvas bag washing differs from a total dismantle overhaul."}
+                </p>
+              </div>
+              <div className="relative overflow-hidden rounded-xl border border-slate-200 shadow-sm bg-white">
+                <img
+                  src="/src/assets/images/chemical_service_comparison_1781585550490.jpg"
+                  alt="Aircon Chemical Service Types: A Visual Comparison (Canvas Chemical Service vs Full Chemical Overhaul)"
+                  className="w-full h-auto object-cover select-none"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </div>
 
             {/* Testimonials or local touches */}
@@ -749,7 +756,7 @@ export default function App() {
                       <span className="text-[10px] text-slate-400 font-mono">Verified Local Business</span>
                     </div>
                     <p className="text-xs text-slate-700 italic font-sans leading-relaxed">
-                      "Mike serviced our coffee shop aircon in Raja Uda Butterworth, very polite crew and cold wind blew on-the-spot! Prices match quoted bill of RM 160-lah."
+                      "Mike serviced our coffee shop aircon in Raja Uda Butterworth, very polite crew and cold wind blew on-the-spot! Prices match quoted bill of RM 300-lah."
                     </p>
                   </div>
                   <div className="flex justify-between items-center border-t border-slate-100 pt-3">
@@ -784,9 +791,7 @@ export default function App() {
                             </div>
                             <span className="text-[9px] text-teal-700 bg-teal-50 px-2 py-0.5 rounded font-bold font-sans uppercase tracking-wider scale-95 origin-right">
                               {appt.serviceType === "normal_cleaning" 
-                                ? (lang === "zh" ? "标准清洗" : lang === "ms" ? "Servis Normal" : "Normal Clean") 
-                                : appt.serviceType === "chemical_cleaning" 
-                                ? (lang === "zh" ? "化学清洗" : lang === "ms" ? "Servis Kimia" : "Chemical Wash") 
+                                ? (lang === "zh" ? "船篷化学清洗" : lang === "ms" ? "Kimia Kanvas" : "Canvas Chemical") 
                                 : appt.serviceType === "chemical_overhaul"
                                 ? (lang === "zh" ? "深度大修" : lang === "ms" ? "Overhal Kimia" : "Chemical Overhaul")
                                 : (lang === "zh" ? "专项服务" : lang === "ms" ? "Servis Khas" : "Repair Slot")}
